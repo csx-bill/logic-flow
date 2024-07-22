@@ -4,19 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>flow-ui</title>
+
     <!-- 引入 core包 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@logicflow/core@1.2.27/dist/style/index.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@logicflow/core@1.2.27/dist/logic-flow.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@logicflow/core@2.0.0-beta.4/dist/index.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@logicflow/core@2.0.0-beta.4/dist/index.css" />
 
     <!-- 引入 extension包样式 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@logicflow/extension@1.2.27/lib/style/index.css" />
-
-    <!-- 插件支持单个引入-->
-    <script src="https://cdn.jsdelivr.net/npm/@logicflow/extension@1.2.27/lib/BpmnElement.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@logicflow/extension@1.2.27/lib/BpmnAdapter.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@logicflow/extension@1.2.27/lib/DndPanel.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@logicflow/extension@1.2.27/lib/SelectionSelect.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@logicflow/extension@1.2.27/lib/Control.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@logicflow/extension@2.0.0-beta.4/dist/index.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@logicflow/extension@2.0.0-beta.4/dist/index.css" />
     
     <style>
       #container {
@@ -146,7 +141,7 @@
 
       function InitLogicFlow() {
         // LogicFlow配置选项
-        const lf = new LogicFlow({
+        const lf = new Core.LogicFlow({
           container: document.querySelector("#container"),
           grid: {
             visible: true,
@@ -162,7 +157,7 @@
           keyboard: {
             enabled: true
           },
-          plugins: [BpmnElement,BpmnXmlAdapter, SelectionSelect, DndPanel, Control]
+          plugins: [Extension.BpmnElement, Extension.BPMNElements, Extension.BpmnXmlAdapter, Extension.SelectionSelect, Extension.DndPanel, Extension.Control]
         })
 
         // 拖拽面板
